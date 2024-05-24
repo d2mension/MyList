@@ -1,7 +1,7 @@
 // 즐겨찾기 약국 리스트 출력
 
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { listStyles } from '../styles/listStyle';
 
@@ -14,13 +14,15 @@ const MedicineList = () => {
     }, []);
 
     const loadFavorites = async () => {
-        const favs = await AsyncStorage.getItem('favorite_pharmacy');
+        const favs = await AsyncStorage.getItem('favorite_medicine');
         setFavorites(favs ? JSON.parse(favs) : {});
     };
 
     return (
         <View style={listStyles.container}>
-            <Text>약 정보 출력 화면입니다.</Text>
+            <ScrollView style={listStyles.container}>
+                <Text>약 정보 출력 화면입니다.</Text>
+            </ScrollView>
         </View>
     );
 };

@@ -5,6 +5,7 @@ import MapButton from './components/Button';
 import Navigation from './components/Navigation';
 import { styles } from './styles/appStyle';
 import PharmacyList from './components/PharmacyList';
+import MedicineList from './components/MedicineList';
 
 
 const App = () => {
@@ -34,7 +35,7 @@ const App = () => {
         <MapButton title="약국 보기" onPress={() => setViewMode('pharmacy')} />
         <MapButton title="약 목록 보기" onPress={() => setViewMode('medecine')} />
       </View>
-        {viewMode === 'pharmacy' ? <PharmacyList /> : null}
+        {viewMode === 'pharmacy' ? <PharmacyList /> : <MedicineList />}
       <Navigation />
     </View>
   );
