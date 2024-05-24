@@ -4,6 +4,7 @@ import * as Location from 'expo-location';
 import MapButton from './components/Button';
 import Navigation from './components/Navigation';
 import { styles } from './styles/appStyle';
+import PharmacyList from './components/PharmacyList';
 
 
 const App = () => {
@@ -30,10 +31,10 @@ const App = () => {
     <View style={styles.container} >
       <StatusBar />
       <View style={styles.buttonContainer}>
-        <MapButton title="약국 보기" onPress={() => setViewMode('pharamacy')} />
-        <MapButton title="약 목록 보기" onPress={() => setViewMode('medicine')} />
+        <MapButton title="약국 보기" onPress={() => setViewMode('pharmacy')} />
+        <MapButton title="약 목록 보기" onPress={() => setViewMode('medecine')} />
       </View>
-        {viewMode === 'pharmacy' ? <MapDisplay /> : <ListDisplay />}
+        {viewMode === 'pharmacy' ? <PharmacyList /> : null}
       <Navigation />
     </View>
   );
@@ -42,12 +43,3 @@ const App = () => {
 
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
